@@ -6,4 +6,5 @@
 .awesome-lightsaber {
     height: 100%;
     width: auto;
+    transform-origin: center bottom;
 }
