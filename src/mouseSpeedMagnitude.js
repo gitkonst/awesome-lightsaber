@@ -1,4 +1,4 @@
-import mouseSpeed from "mouse-speed";
+import mouseSpeed from "./mouse-speed";
 import Vec2 from "vec2";
 
 function mouseSpeedMagnitudeNormalized(mouseMoveEvent)
