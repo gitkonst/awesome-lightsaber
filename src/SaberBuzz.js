@@ -19,6 +19,8 @@ const reverb = new Tone.Freeverb(0.7, 300000);
 reverb.wet.value = 0.1;
 const chorus = new Tone.Chorus(4, 2.5, 0.5);
 const synth = new Tone.FMSynth(synthProps).chain(reverb, distortion, chorus, Tone.Master);
+
+//const synth = new Tone.FMSynth(synthProps).toMaster();
 const synth2 = new Tone.FMSynth(synthProps).toMaster();
 
 
