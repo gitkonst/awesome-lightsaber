@@ -12,13 +12,18 @@ function offsetBottomY(event) {
 }
 
 function idle(event) {
+  let angle = 0;
+  let transitionTime = 0.19;
+  if(event.type === "touchstart") {
+    angle = angleRad(event);
+    transitionTime /= 3;
+  }
   const tiltedImgStyle = event.currentTarget.firstChild.style;
-  tiltedImgStyle.transform = "rotateZ(0)";
-  tiltedImgStyle.transition = "transform 0.19s ease-out";
+  tiltedImgStyle.transform = `rotateZ(${angle}rad)`;
+  tiltedImgStyle.transition = `transform ${transitionTime}s ease-out`;
 }
 
-function touchTiltHandler(event) {
-  event.preventDefault();
+function angleRad(event) {
   const offsetX = offsetCenterX(event);
   let tan = 99999;
   if(offsetX !== 0) {
@@ -26,14 +31,21 @@ function touchTiltHandler(event) {
   }
   let angleRad =  Math.PI / 2 - Math.atan(tan);
   if(tan < 0) angleRad -= Math.PI;
+  return angleRad;
+}
+
+function touchTiltHandler(event) {
+  event.preventDefault();
+
   const tiltedImgStyle = event.currentTarget.firstChild.style;
   tiltedImgStyle.transition = "";
-  tiltedImgStyle.transform = "rotateZ(" + angleRad + "rad)";
+  tiltedImgStyle.transform = "rotateZ(" + angleRad(event) + "rad)";
 }
 
 function addTouchTilt(element) {
   element.addEventListener("touchmove", touchTiltHandler.bind(element));
   element.addEventListener("touchend", idle);
+  element.addEventListener("touchstart", idle);
 }
 
 export default addTouchTilt;
