@@ -21,13 +21,22 @@ class AwesomeLightsaber extends PureComponent {
     }
   };
 
+  disableContextMenu = (event) => {
+    event.preventDefault();
+    return false;
+  };
+
   render() {
     return (
       <div
         className="awesome-lightsaber-wrapper"
         ref={this.addSoundListeners}
       >
-        <img className="awesome-lightsaber" src="images/star-wars-2908144_1280_upright.png" alt="Lightsaber"/>
+        <img
+          className="awesome-lightsaber"
+          onContextMenu={this.disableContextMenu}
+          src="images/star-wars-2908144_1280_upright.png"
+          alt="Lightsaber"/>
       </div>
     );
   }
