@@ -1,5 +1,6 @@
-import saberBuzz from "./saberBuzz";
-import playImpactSound from "./impactSound";
+import saberBuzz from "../saberBuzz";
+import playImpactSound from "../impactSound";
+import touchActive from "./touchActive";
 
 const MAX_TIME_BETWEEN_IMPACTS = 1000; // in milliseconds, during non-stop waving
 
@@ -37,7 +38,7 @@ function addAccelerometerSound(element) {
     const soundDisabled = !timeSoundEnabled;
     const motionFastEnough = accelerationMagnitude > 2;
     const shouldEnableSound = motionFastEnough && (soundDisabled || notYetNeedImpact);
-    if(shouldEnableSound ) {
+    if(shouldEnableSound && !touchActive()) {
       enableSound(Math.pow(normalizedAccelerationMagnitude(event), 2));
       clearTimeout(disableTimer);
       disableTimer = setTimeout(disableSound, 100);

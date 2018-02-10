@@ -4,7 +4,7 @@ import isMobile from "./isMobile";
 
 import addMouseSound from "./sound/soundMouse/soundMouse";
 import addTouchSound from "./sound/soundTouch";
-import addAccelerometerSound from "./sound/soundAccelerometer";
+import addAccelerometerSound from "./sound/soundAccelerometer/soundAccelerometer";
 import addMouseTilt from "./tilt/tiltMouse";
 import addTouchTilt from "./tilt/tiltTouch";
 
@@ -13,13 +13,13 @@ class AwesomeLightsaber extends PureComponent {
   addSoundListeners = (element) => {
     if(!element) return;
     if(isMobile()) {
-      addTouchTilt(element);
-      //addTouchSound(element);
+      addTouchSound(element);
       addAccelerometerSound(element);
+      addTouchTilt(element);
     }
     else {
-      addMouseTilt(element);
       addMouseSound(element);
+      addMouseTilt(element);
     }
   };
 
