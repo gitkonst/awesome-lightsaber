@@ -17,7 +17,7 @@ function disableSound() {
   timeSoundEnabled = null;
 }
 
-function addSaberMouseSound(element) {
+function addMouseSound(element) {
   if(!element) return;
   let disableTimer = 0;
   element.addEventListener("mousemove", (event) => {
@@ -35,4 +35,4 @@ function addSaberMouseSound(element) {
   });
 }
 
-export default addSaberMouseSound;
+export default addMouseSound;

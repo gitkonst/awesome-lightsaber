@@ -32,7 +32,7 @@ function playImpactSound() {
   //alert("played the sound");
 }
 
-function addSaberTouchSound(element) {
+function addTouchSound(element) {
   if(!element) return;
   let disableTimer = 0;
   element.addEventListener("click", (event) => {
@@ -65,4 +65,4 @@ function addSaberTouchSound(element) {
   });
 }
 
-export default addSaberTouchSound;
+export default addTouchSound;

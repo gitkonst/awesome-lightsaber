@@ -27,7 +27,7 @@ function normalizedAccelerationMagnitude(event) {
 }
 
 
-function addSaberAccelerometerSound(element) {
+function addAccelerometerSound(element) {
   let disableTimer = 0;
   window.addEventListener("devicemotion", (event) => {
     const a = event.acceleration;
@@ -45,4 +45,4 @@ function addSaberAccelerometerSound(element) {
   });
 }
 
-export default addSaberAccelerometerSound;
+export default addAccelerometerSound;

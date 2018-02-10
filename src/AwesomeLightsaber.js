@@ -1,23 +1,25 @@
 import React, { PureComponent } from "react";
 import "./AwesomeLightsaber.css";
-import addSaberMouseSound from "./sound/soundMouse/soundMouse";
+import isMobile from "./isMobile";
+
+import addMouseSound from "./sound/soundMouse/soundMouse";
+import addTouchSound from "./sound/soundTouch";
+import addAccelerometerSound from "./sound/soundAccelerometer";
 import addMouseTilt from "./tilt/tiltMouse";
 import addTouchTilt from "./tilt/tiltTouch";
-import addSaberTouchSound from "./sound/soundTouch";
-import addSaberAccelerometerSound from "./sound/soundAccelerometer";
-import isMobile from "./isMobile";
+
 
 class AwesomeLightsaber extends PureComponent {
   addSoundListeners = (element) => {
     if(!element) return;
     if(isMobile()) {
       addTouchTilt(element);
-      //addSaberTouchSound(element);
-      addSaberAccelerometerSound(element);
+      //addTouchSound(element);
+      addAccelerometerSound(element);
     }
     else {
       addMouseTilt(element);
-      addSaberMouseSound(element);
+      addMouseSound(element);
     }
   };
 
