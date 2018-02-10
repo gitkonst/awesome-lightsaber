@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import AwesomeLightsaber from "./AwesomeLightsaber";
-import SoundEnableButtonMobile from "./SoundEnableButtonMobile";
+import SoundEnableButtonMobile from "./sound/EnableSoundButtonMobile";
 import isMobile from "./isMobile";
 import "./App.css";
 

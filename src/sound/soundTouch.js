@@ -1,5 +1,5 @@
-import saberBuzz from "./SaberBuzz";
-import mouseSpeedMagnitudeNormalized from "./mouseSpeedMagnitude"
+import saberBuzz from "./saberBuzz";
+import mouseSpeedMagnitudeNormalized from "./soundMouse/mouseSpeedMagnitude"
 //import touchSpeedMagnitudeNormalized from "./mouseSpeedMagnitude"
 
 const IMPACT_SOUND_FILE = "sounds/lasrhit2_mod.wav";

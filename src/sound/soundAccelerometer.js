@@ -1,4 +1,4 @@
-import saberBuzz from "./SaberBuzz";
+import saberBuzz from "./saberBuzz";
 import playImpactSound from "./impactSound";
 
 const MAX_TIME_BETWEEN_IMPACTS = 1000; // in milliseconds, during non-stop waving

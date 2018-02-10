@@ -2,7 +2,7 @@
 // This component shows a button to click if run on mobile.
 
 import React, { PureComponent } from "react";
-import "./SoundEnableButtonMobile.css";
+import "./EnableSoundButtonMobile.css";
 import {impactAudio} from "./impactSound";
 
 class SoundEnableButtonMobile extends PureComponent {
