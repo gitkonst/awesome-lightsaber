@@ -1,8 +1,7 @@
 import saberBuzz from "./SaberBuzz";
 import mouseSpeedMagnitudeNormalized from "./mouseSpeedMagnitude"
+import playImpactSound from "./impactSound";
 
-const IMPACT_SOUND_FILE = "sounds/lasrhit2_mod.wav";
-const IMPACT_SOUND_VOLUME = 0.04; // Range is 0...1
 const MAX_TIME_BETWEEN_IMPACTS = 500; // in milliseconds, during non-stop waving
 
 let timeSoundEnabled = null;
@@ -16,12 +15,6 @@ function disableSound() {
   saberBuzz.off();
   setTimeout(playImpactSound, 50);
   timeSoundEnabled = null;
-}
-
-function playImpactSound() {
-  const audio = new Audio(IMPACT_SOUND_FILE);
-  audio.volume = IMPACT_SOUND_VOLUME;
-  audio.play();
 }
 
 function addSaberMouseSound(element) {

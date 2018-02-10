@@ -1,10 +1,16 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import AwesomeLightsaber from "./AwesomeLightsaber";
+import SoundEnableButtonMobile from "./SoundEnableButtonMobile";
+import isMobile from "./isMobile";
+import "./App.css";
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
-      <AwesomeLightsaber />
+      <div className="app">
+        <AwesomeLightsaber />
+        {isMobile() && <SoundEnableButtonMobile />}
+      </div>
     );
   }
 }

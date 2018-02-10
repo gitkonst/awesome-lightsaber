@@ -1,0 +1,23 @@
+.sound-enable-button-wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sound-enable-button {
+    position: absolute;
+    padding: 2rem;
+    font-size: 4rem;
+    color: yellow;
+    background-color: rgba(75, 75, 75, 0.75);
+    border-radius: 20px;
+    user-select: none;
+}
+
+.sound-enable-button:focus {
+    outline: 0;
+}

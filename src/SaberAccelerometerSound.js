@@ -1,7 +1,6 @@
 import saberBuzz from "./SaberBuzz";
+import playImpactSound from "./impactSound";
 
-const IMPACT_SOUND_FILE = "sounds/lasrhit2_mod.wav";
-const IMPACT_SOUND_VOLUME = 0.02; // Range is 0...1
 const MAX_TIME_BETWEEN_IMPACTS = 1000; // in milliseconds, during non-stop waving
 
 let timeSoundEnabled = null;
@@ -27,21 +26,8 @@ function normalizedAccelerationMagnitude(event) {
   return clippedAM / MAX_ACCELERATION_MAGNITUDE;
 }
 
-const audio = new Audio(IMPACT_SOUND_FILE);
-audio.volume = IMPACT_SOUND_VOLUME;
-
-function playImpactSound() {
-  audio.currentTime = 0;
-  audio.play();
-}
 
 function addSaberAccelerometerSound(element) {
-
-  element.addEventListener("click", (event) => {
-    audio.play().then(() => {audio.pause()});
-  });
-
-
   let disableTimer = 0;
   window.addEventListener("devicemotion", (event) => {
     const a = event.acceleration;
