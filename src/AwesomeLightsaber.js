@@ -2,12 +2,10 @@ import React, { PureComponent } from "react";
 import "./AwesomeLightsaber.css";
 import isMobile from "./isMobile";
 
-import addMouseSound from "./sound/soundMouse";
-import addTouchSound from "./sound/soundTouch";
+import {addMouseSound, addTouchSound} from "./sound/soundPointer";
 import addAccelerometerSound from "./sound/soundAccelerometer/soundAccelerometer";
 import addMouseTilt from "./tilt/tiltMouse";
 import addTouchTilt from "./tilt/tiltTouch";
-
 
 class AwesomeLightsaber extends PureComponent {
   addSoundListeners = (element) => {

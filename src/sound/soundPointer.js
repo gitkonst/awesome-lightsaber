@@ -1,5 +1,5 @@
 import saberBuzz from "./saberBuzz";
-import {mouseSpeedMagnitudeNormalized} from "./pointerSpeedMagnitude"
+import {mouseSpeedMagnitudeN, touchSpeedMagnitudeN} from "./pointerSpeedMagnitude"
 import playImpactSound from "./impactSound";
 
 const MAX_TIME_BETWEEN_IMPACTS = 500; // in milliseconds, during non-stop waving
@@ -17,11 +17,11 @@ function disableSound() {
   timeSoundEnabled = null;
 }
 
-function addMouseSound(element) {
+function addPointerSound(element, eventName, speedFunc) {
   if(!element) return;
   let disableTimer = 0;
-  element.addEventListener("mousemove", (event) => {
-    const mouseMultiplier = mouseSpeedMagnitudeNormalized(event);
+  element.addEventListener(eventName, (event) => {
+    const mouseMultiplier = speedFunc(event);
     const mouseFastEnough = mouseMultiplier > 0.025; // range is 0...1
     const timeSinceSoundEnabled = Date.now() - timeSoundEnabled;
     const soundDisabled = !timeSoundEnabled;
@@ -35,4 +35,12 @@ function addMouseSound(element) {
   });
 }
 
-export default addMouseSound;
+function addMouseSound(element) {
+  return addPointerSound(element, "mousemove", mouseSpeedMagnitudeN);
+}
+
+function addTouchSound(element) {
+  return addPointerSound(element, "touchmove", touchSpeedMagnitudeN);
+}
+
+export {addMouseSound, addTouchSound};
