@@ -2,7 +2,9 @@ import saberBuzz from "./saberBuzz";
 import {mouseSpeedMagnitudeN, touchSpeedMagnitudeN} from "./pointerSpeedMagnitude"
 import playImpactSound from "./impactSound";
 
-const MAX_TIME_BETWEEN_IMPACTS = 500; // in milliseconds, during non-stop waving
+const MAX_TIME_BETWEEN_IMPACTS = 250; // in milliseconds, during non-stop waving
+const MIN_BUZZ_SPEED = 0.01; // range is 0...1
+const MIN_IMPACT_SPEED = 0.075;
 
 let timeSoundEnabled = null;
 
@@ -11,9 +13,11 @@ function enableSound(mouseMultiplier) {
   if(!timeSoundEnabled) timeSoundEnabled = Date.now();
 }
 
-function disableSound() {
+function disableSound(pointerSpeedN) {
   saberBuzz.off();
-  setTimeout(playImpactSound, 50);
+  if(pointerSpeedN > MIN_IMPACT_SPEED) {
+    setTimeout(playImpactSound, 50);
+  }
   timeSoundEnabled = null;
 }
 
@@ -21,16 +25,17 @@ function addPointerSound(element, eventName, speedFunc) {
   if(!element) return;
   let disableTimer = 0;
   element.addEventListener(eventName, (event) => {
-    const mouseMultiplier = speedFunc(event);
-    const mouseFastEnough = mouseMultiplier > 0.025; // range is 0...1
+    const pointerSpeedN = speedFunc(event);
+    const mouseFastEnough = pointerSpeedN > MIN_BUZZ_SPEED;
     const timeSinceSoundEnabled = Date.now() - timeSoundEnabled;
     const soundDisabled = !timeSoundEnabled;
     const notYetNeedImpact = timeSinceSoundEnabled < MAX_TIME_BETWEEN_IMPACTS * Math.random(); // Frame rate dependent. Whatever.
     const shouldEnableSound = mouseFastEnough && (soundDisabled || notYetNeedImpact);
     if (shouldEnableSound) {
-      enableSound(mouseMultiplier);
+      enableSound(pointerSpeedN);
       clearTimeout(disableTimer);
-      disableTimer = setTimeout(disableSound, 100);
+      const disableSoundWithSpeed = disableSound.bind(null, pointerSpeedN);
+      disableTimer = setTimeout(disableSoundWithSpeed, 100);
     }
   });
 }
