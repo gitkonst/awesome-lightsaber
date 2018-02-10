@@ -1,6 +1,6 @@
-import saberBuzz from "../saberBuzz";
-import mouseSpeedMagnitudeNormalized from "./mouseSpeedMagnitude"
-import playImpactSound from "../impactSound";
+import saberBuzz from "./saberBuzz";
+import {mouseSpeedMagnitudeNormalized} from "./pointerSpeedMagnitude"
+import playImpactSound from "./impactSound";
 
 const MAX_TIME_BETWEEN_IMPACTS = 500; // in milliseconds, during non-stop waving
 
