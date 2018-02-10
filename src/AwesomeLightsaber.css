@@ -3,9 +3,16 @@
     height: 100%;
 }
 
+@keyframes flicker {
+    0% {opacity: 1;}
+    50% {opacity: 0.9;}
+    100% {opacity: 1;}
+}
+
 .awesome-lightsaber {
     height: 100%;
     width: auto;
     transform-origin: center bottom;
     user-select: none;
+    animation: flicker 150ms linear infinite;
 }
