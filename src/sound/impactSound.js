@@ -13,7 +13,10 @@ const NOOP = () => {/*tough luck*/};
 
 function playImpactSound() {
   impactAudio.currentTime = 0;
-  impactAudio.play().catch(NOOP);
+  const playPromise = impactAudio.play();
+  if(playPromise) { // Edge guard
+    playPromise.catch(NOOP);
+  }
 }
 
 export {impactAudio};
