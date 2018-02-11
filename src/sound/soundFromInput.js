@@ -22,7 +22,7 @@ function disableSound(pointerSpeedN) {
   timeSoundEnabled = null;
 }
 
-function addPointerSound(element, eventName, speedFunc) {
+function addPointerSound(element, eventName, speedFunc, maxTimeBetweenImpacts = MAX_TIME_BETWEEN_IMPACTS) {
   if(!element) return;
   let disableTimer = 0;
   element.addEventListener(eventName, (event) => {
@@ -30,7 +30,7 @@ function addPointerSound(element, eventName, speedFunc) {
     const mouseFastEnough = pointerSpeedN > MIN_BUZZ_SPEED;
     const timeSinceSoundEnabled = Date.now() - timeSoundEnabled;
     const soundDisabled = !timeSoundEnabled;
-    const notYetNeedImpact = timeSinceSoundEnabled < MAX_TIME_BETWEEN_IMPACTS * Math.random(); // Frame rate dependent. Whatever.
+    const notYetNeedImpact = timeSinceSoundEnabled < maxTimeBetweenImpacts * Math.random(); // Frame rate dependent. Whatever.
     const shouldEnableSound = mouseFastEnough && (soundDisabled || notYetNeedImpact);
     if (shouldEnableSound) {
       enableSound(pointerSpeedN);
@@ -50,7 +50,7 @@ function addTouchSound(element) {
 }
 
 function addAccelerometerSound(element) {
-  return addPointerSound(window, "devicemotion", accelerometerSpeedFuncN);
+  return addPointerSound(window, "devicemotion", accelerometerSpeedFuncN, MAX_TIME_BETWEEN_IMPACTS * 3);
 }
 
 export {addMouseSound, addTouchSound, addAccelerometerSound};
