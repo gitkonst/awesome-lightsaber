@@ -9,9 +9,11 @@ const VOLUME = isMobile() ? VOLUME_MOBILE : VOLUME_PC;
 const impactAudio = new Audio(SOUND_FILE);
 impactAudio.volume = VOLUME;
 
+const NOOP = () => {/*tough luck*/};
+
 function playImpactSound() {
   impactAudio.currentTime = 0;
-  impactAudio.play();
+  impactAudio.play().catch(NOOP);
 }
 
 export {impactAudio};
