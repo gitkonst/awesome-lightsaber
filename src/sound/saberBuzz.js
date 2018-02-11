@@ -1,5 +1,5 @@
 import Tone from "tone";
-import isMobile from "../isMobile";
+import {isMobile, androidOlderThan6} from "../platformDetection";
 
 const TREBLE_MULTIPLIER = 1.27;
 
@@ -19,7 +19,14 @@ const distortion = new Tone.Distortion(0.1);
 const reverb = new Tone.Freeverb(0.7, 300000);
 reverb.wet.value = 0.1;
 const chorus = new Tone.Chorus(4, 2.5, 0.5);
-const synth = new Tone.FMSynth(synthProps).chain(reverb, distortion, chorus, Tone.Master);
+let synth = null;
+if(androidOlderThan6) {
+  // Older android devices don't seem to handle reverb
+  synth = new Tone.FMSynth(synthProps).chain(distortion, chorus, Tone.Master);
+}
+else {
+  synth = new Tone.FMSynth(synthProps).chain(reverb, distortion, chorus, Tone.Master);
+}
 const synth2 = new Tone.FMSynth(synthProps).toMaster();
 
 // Firefox 57.0.1 on Android: apparently can't handle two synths, can't handle effects

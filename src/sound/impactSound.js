@@ -1,4 +1,4 @@
-import isMobile from "../isMobile";
+import {isMobile} from "../platformDetection";
 
 const SOUND_FILE = "sounds/lasrhit2_mod.wav";
 const VOLUME_PC = 0.04; // Range is 0...1

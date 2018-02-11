@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import "./AwesomeLightsaber.css";
-import isMobile from "./isMobile";
+import {isMobile} from "./platformDetection";
 import Tone from "tone";
 import {impactAudio} from "./sound/impactSound";
 import StartAudioContext from "startaudiocontext";
