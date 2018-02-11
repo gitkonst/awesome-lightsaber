@@ -54,7 +54,9 @@ class AwesomeLightsaber extends PureComponent {
           className="awesome-lightsaber"
           onContextMenu={this.disableContextMenu}
           src={SABER_IMG}
-          alt="Lightsaber"/>
+          alt="Lightsaber"
+          draggable="false"
+        />
       </div>
     );
   }
