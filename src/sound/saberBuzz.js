@@ -1,6 +1,7 @@
 import Tone from "tone";
 import {isMobile, androidOlderThan6} from "../platformDetection";
 
+const GAIN = 11; // 1 is nominal? Viva la Spinal Tap!
 const TREBLE_MULTIPLIER = 1.27;
 
 const synthProps = {
@@ -19,15 +20,17 @@ const distortion = new Tone.Distortion(0.1);
 const reverb = new Tone.Freeverb(0.7, 300000);
 reverb.wet.value = 0.1;
 const chorus = new Tone.Chorus(4, 2.5, 0.5);
+const gain = new Tone.Gain(GAIN);
 let synth = null;
 if(androidOlderThan6) {
   // Older android devices don't seem to handle reverb
-  synth = new Tone.FMSynth(synthProps).chain(distortion, chorus, Tone.Master);
+  synth = new Tone.FMSynth(synthProps).chain(gain, distortion, chorus, Tone.Master);
 }
 else {
-  synth = new Tone.FMSynth(synthProps).chain(reverb, distortion, chorus, Tone.Master);
+  synth = new Tone.FMSynth(synthProps).chain(gain, reverb, distortion, chorus, Tone.Master);
 }
-const synth2 = new Tone.FMSynth(synthProps).toMaster();
+const gain2 = new Tone.Gain(GAIN); // using just one gain isn't ok on firefox mobile
+const synth2 = new Tone.FMSynth(synthProps).chain(gain2, Tone.Master);
 
 // Firefox 57.0.1 on Android: apparently can't handle two synths, can't handle effects
 const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;

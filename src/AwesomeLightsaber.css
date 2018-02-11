@@ -5,7 +5,7 @@
 
 @keyframes flicker {
     0% {opacity: 1;}
-    50% {opacity: 0.9;}
+    50% {opacity: 0.85;}
     100% {opacity: 1;}
 }
 
