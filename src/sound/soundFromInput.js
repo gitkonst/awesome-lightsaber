@@ -1,6 +1,7 @@
 import saberBuzz from "./saberBuzz";
 import {mouseSpeedMagnitudeN, touchSpeedMagnitudeN} from "./pointerSpeedMagnitude"
 import playImpactSound from "./impactSound";
+import accelerometerSpeedFuncN from "./accelerometerSpeedFuncN";
 
 const MAX_TIME_BETWEEN_IMPACTS = 250; // in milliseconds, during non-stop waving
 const MIN_BUZZ_SPEED = 0.01; // range is 0...1
@@ -48,4 +49,8 @@ function addTouchSound(element) {
   return addPointerSound(element, "touchmove", touchSpeedMagnitudeN);
 }
 
-export {addMouseSound, addTouchSound};
+function addAccelerometerSound(element) {
+  return addPointerSound(window, "devicemotion", accelerometerSpeedFuncN);
+}
+
+export {addMouseSound, addTouchSound, addAccelerometerSound};

@@ -2,8 +2,7 @@ import React, { PureComponent } from "react";
 import "./AwesomeLightsaber.css";
 import isMobile from "./isMobile";
 
-import {addMouseSound, addTouchSound} from "./sound/soundPointer";
-import addAccelerometerSound from "./sound/soundAccelerometer/soundAccelerometer";
+import {addMouseSound, addTouchSound, addAccelerometerSound} from "./sound/soundFromInput";
 import addMouseTilt from "./tilt/tiltMouse";
 import addTouchTilt from "./tilt/tiltTouch";
 
