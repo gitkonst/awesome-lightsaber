@@ -13,6 +13,13 @@
     height: 100%;
     width: auto;
     transform-origin: center bottom;
+}
+
+.awesome-lightsaber-img {
+    height: 105%;
+    width: auto;
     user-select: none;
     animation: flicker 150ms linear infinite;
+    transform: scale(1.38, 1);
+    object-fit: contain;
 }

@@ -50,13 +50,15 @@ class AwesomeLightsaber extends PureComponent {
         ref={this.addSoundListeners}
         onTouchEnd={this.enableImpactSound}
       >
-        <img
-          className="awesome-lightsaber"
-          onContextMenu={this.disableContextMenu}
-          src={SABER_IMG}
-          alt="Lightsaber"
-          draggable="false"
-        />
+        <div className="awesome-lightsaber">
+          <img
+            className="awesome-lightsaber-img"
+            onContextMenu={this.disableContextMenu}
+            src={SABER_IMG}
+            alt="Lightsaber"
+            draggable="false"
+          />
+        </div>
       </div>
     );
   }
