@@ -3,6 +3,7 @@ import "./AwesomeLightsaber.css";
 import {isMobile} from "./platformDetection";
 import Tone from "tone";
 import {impactAudio} from "./sound/impactSound";
+import playUnsheatheSound from "./sound/unsheatheSound";
 import StartAudioContext from "startaudiocontext";
 
 import {addMouseSound, addTouchSound, addAccelerometerSound} from "./sound/soundFromInput";
@@ -25,6 +26,7 @@ class AwesomeLightsaber extends PureComponent {
     else {
       addMouseSound(element);
       addMouseTilt(element);
+      playUnsheatheSound();
     }
   };
 
@@ -40,6 +42,7 @@ class AwesomeLightsaber extends PureComponent {
         impactAudio.pause()
       });
       this.impactAudioEnabled = true;
+      playUnsheatheSound();
     }
   };
 
