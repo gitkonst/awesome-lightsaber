@@ -17,4 +17,8 @@ function getAndroidVersion(ua) {
 const androidOlderThan6 = isAndroid() && (parseInt(getAndroidVersion(), 10) < 6);
 
 
-export {isMobile, androidOlderThan6};
+
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+const isMobileFirefox = isFirefox && isMobile();
+
+export {isMobile, androidOlderThan6, isMobileFirefox};

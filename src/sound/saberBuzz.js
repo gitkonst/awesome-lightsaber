@@ -1,5 +1,5 @@
 import Tone from "tone";
-import {isMobile, androidOlderThan6} from "../platformDetection";
+import {isMobile, androidOlderThan6, isMobileFirefox} from "../platformDetection";
 import panner from "./panner";
 
 const GAIN = 11; // 1 is nominal? Viva la Spinal Tap!
@@ -22,25 +22,23 @@ const reverb = new Tone.Freeverb(0.7, 300000);
 reverb.wet.value = 0.1;
 const chorus = new Tone.Chorus(4, 2.5, 0.5);
 const gain = new Tone.Gain(GAIN);
-const gain2 = new Tone.Gain(GAIN); // using just one gain isn't ok on firefox mobile
 let synth = null;
 let synth2 = null;
 if(androidOlderThan6) {
   // Older android devices don't seem to handle reverb
   synth = new Tone.FMSynth(synthProps).chain(gain, distortion, chorus, Tone.Master);
-  synth2 = new Tone.FMSynth(synthProps).chain(gain2, Tone.Master);
+  synth2 = new Tone.FMSynth(synthProps).chain(gain, Tone.Master);
 }
 else {
-  synth = new Tone.FMSynth(synthProps).chain(gain, panner, reverb, distortion, chorus, Tone.Master);
-  synth2 = new Tone.FMSynth(synthProps).chain(gain2, panner, Tone.Master);
+  if(!isMobileFirefox) { // Important to not even init synth for mobile Firefox
+    synth = new Tone.FMSynth(synthProps).chain(gain, panner, reverb, distortion, chorus, Tone.Master);
+  }
+  synth2 = new Tone.FMSynth(synthProps).chain(gain, panner, Tone.Master);
 }
-
-// Firefox 57.0.1 on Android: apparently can't handle two synths, can't handle effects
-const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-const isMobileFirefox = isFirefox && isMobile();
 
 class SaberBuzz {
   on(mouseMultiplier) {
+    // Firefox 57.0.1 on Android: apparently can't handle two synths, can't handle effects
     if(!isMobileFirefox) {
       synth.triggerAttack(TREBLE_MULTIPLIER * 50 * (1 + mouseMultiplier));
     }
