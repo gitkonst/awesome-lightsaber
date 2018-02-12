@@ -5,12 +5,12 @@ function isMobile() {
 
 function isAndroid() {
   const ua = navigator.userAgent.toLowerCase();
-  return isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+  return ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 }
 
 function getAndroidVersion(ua) {
   ua = (ua || navigator.userAgent).toLowerCase();
-  const match = ua.match(/android\s([0-9\.]*)/);
+  const match = ua.match(/android\s([0-9.]*)/);
   return match ? match[1] : false;
 }
 
