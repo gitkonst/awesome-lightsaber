@@ -1,4 +1,4 @@
-const MAX_ACCELERATION_MAGNITUDE = 75;
+let maxMagnitudeDynamic = 23; // one of my devices goes up to 75
 
 let touchActive = false;
 
@@ -16,8 +16,9 @@ function accelerometerSpeedFuncN(event) {
   }
   const withGravity = !event.acceleration || (event.acceleration.x === null);
   const magnitude = withGravity ? getMagnitudeWithGravity(event) : getMagnitude(event);
-  const clippedMagnitude = Math.min(magnitude, MAX_ACCELERATION_MAGNITUDE);
-  const clippedMNorm = clippedMagnitude / MAX_ACCELERATION_MAGNITUDE;
+  maxMagnitudeDynamic = Math.max(magnitude, maxMagnitudeDynamic);
+  const clippedMagnitude = Math.min(magnitude, maxMagnitudeDynamic);
+  const clippedMNorm = clippedMagnitude / maxMagnitudeDynamic;
   return Math.pow(clippedMNorm, 1.5);
 }
 
