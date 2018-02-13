@@ -2,7 +2,7 @@ import Tone from "tone";
 import {androidOlderThan6, isMobileFirefox} from "../platformDetection";
 import panner from "./panner";
 
-const GAIN = 11; // 1 is nominal? Viva la Spinal Tap!
+const GAIN = 4; // 1 is nominal?
 const TREBLE_MULTIPLIER = 1.27;
 
 const synthProps = {
