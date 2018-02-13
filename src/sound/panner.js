@@ -10,7 +10,7 @@ function offsetCenterXNorm(event) {
 }
 
 const panner = new Tone.Panner(0);
-// TODO (maybe) shouldn't add to body if Awesome Lightsaber isn't full page
+// maybe shouldn't add to body if Awesome Lightsaber isn't full page
 document.body.addEventListener("mousemove", (event) => {
   panner.pan.value = offsetCenterXNorm(event);
 });

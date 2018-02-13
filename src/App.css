@@ -1,4 +1,7 @@
 .app {
     height: 100%;
     position: relative;
+    background-color: #050505;
+    color: white;
+    overflow: hidden; /* Hides the scrollbar */
 }

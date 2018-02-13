@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function accelerometerSpeedFuncN(event) {
-  if(touchActive) {
+  if(touchActive) { // Touch screen overrides accelerometer
     return 0;
   }
   const withGravity = !event.acceleration || (event.acceleration.x === null);

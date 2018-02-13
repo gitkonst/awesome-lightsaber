@@ -34,6 +34,6 @@ let mouseSpeed = (e, object = {}) => {
   object.speedY = speedY;
 
   return { x: speedX, y: speedY }
-}
+};
 
 module.exports = mouseSpeed;
