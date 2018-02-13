@@ -1,5 +1,3 @@
-import {isMobile} from "../platformDetection";
-
 const SOUND_FILE = "sounds/sw4-lightsabre.wav";
 const VOLUME = 0.5;
 
