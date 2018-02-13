@@ -1,4 +1,5 @@
 import {isMobile} from "../platformDetection";
+import playUnsheatheSound from "./unsheatheSound";
 
 const SOUND_FILE = "sounds/lasrhit2_mod.wav";
 const VOLUME_PC = 0.3; // Range is 0...1
@@ -19,5 +20,18 @@ function playImpactSound() {
   }
 }
 
-export {impactAudio};
+let _impactAudioEnabled = false;
+
+function enableImpactSoundHandler() {
+  // mobile browsers don't enable sound unless it's started by a touchend event
+  if(!_impactAudioEnabled) {
+    impactAudio.play().then(() => {
+      impactAudio.pause()
+    });
+    _impactAudioEnabled = true;
+    playUnsheatheSound(); // On PC play it right away in componentDidMount
+  }
+}
+
+export {enableImpactSoundHandler};
 export default playImpactSound;
