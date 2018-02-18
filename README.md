@@ -1,5 +1,5 @@
 # Awesome Lightsaber
-Your phone/mouse is a lightsaber! [Click here to swing!](https://gitkonst.github.io/awesome-lightsaber)
+Your phone/mouse is a lightsaber! [Tap here to swing!](https://gitkonst.github.io/awesome-lightsaber)
 
 Recommended browser: Google Chrome.
 
