@@ -1,8 +1,8 @@
 import touchActive from "./touchActive";
 
 let maxMagnitudeDynamic = 23; // one of my devices goes up to 75
-let maxXMagnitudeDynamic = 2.84; // up to 4.22?
-const MIN_X_NORM = 0.05;
+let maxXMagnitudeDynamic = 15;
+const MIN_X = 1;
 
 const includingGravity = event => !event.acceleration || (event.acceleration.x === null);
 
@@ -31,13 +31,13 @@ function accelerationNormalized(event, withoutZ = false) {
 function accelerationNormalizedTilt(event) {
   const portrait = window.matchMedia("(orientation: portrait)").matches;
   const accelX = portrait ? getAcceleration(event).x : getAcceleration(event).y;
-  const accelXAbs = Math.abs(accelX);
+  let accelXAbs = Math.abs(accelX);
+  if(accelXAbs < MIN_X) {  // avoid sensor noise
+    accelXAbs = 0;
+  }
   maxXMagnitudeDynamic = Math.max(accelXAbs, maxXMagnitudeDynamic);
   const accelXAbsClipped = Math.min(accelXAbs, maxXMagnitudeDynamic);
-  let accelXNorm = accelXAbsClipped / maxXMagnitudeDynamic;
-  if(accelXNorm < MIN_X_NORM) {  // avoid sensor noise
-    accelXNorm = 0;
-  }
+  const accelXNorm = accelXAbsClipped / maxXMagnitudeDynamic;
   return accelXNorm * Math.sign(accelX);
 }
 
