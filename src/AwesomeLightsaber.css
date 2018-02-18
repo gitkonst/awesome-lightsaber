@@ -24,7 +24,6 @@
     animation: flicker 150ms linear infinite;
     transform: scale(1.38, 1);
     object-fit: contain;
-    filter: hue-rotate(80deg);
 }
 
 .lightsaber-red {

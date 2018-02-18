@@ -4,7 +4,7 @@ import "./ColorPickButton.css";
 class ColorPickButton extends PureComponent {
   render() {
     return (
-      <button className={this.props.className} />
+      <button className={this.props.className} onClick={this.props.onClick}/>
     );
   }
 }
