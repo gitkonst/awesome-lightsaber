@@ -13,6 +13,8 @@
     height: 100%;
     width: auto;
     transform-origin: center bottom;
+    z-index: 1000;
+    pointer-events: none;
 }
 
 .awesome-lightsaber-img {
@@ -22,4 +24,17 @@
     animation: flicker 150ms linear infinite;
     transform: scale(1.38, 1);
     object-fit: contain;
+    filter: hue-rotate(80deg);
+}
+
+.lightsaber-red {
+    filter: hue-rotate(250deg);
+}
+
+.lightsaber-blue {
+    filter: hue-rotate(80deg);
+}
+
+.lightsaber-green {
+    /* nothing, it's already green */
 }

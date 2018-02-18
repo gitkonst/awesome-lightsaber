@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import "./AwesomeLightsaber.css";
+import ColorPickPanel from "./ColorPickPanel";
 import addInputEventListeners from "./addInputEventListeners";
 import {enableImpactSoundHandler} from "./sound/impactSound";
 import playUnsheatheSound from "./sound/unsheatheSound";
@@ -24,6 +25,7 @@ class AwesomeLightsaber extends PureComponent {
         ref={addInputEventListeners}
         onTouchEnd={enableImpactSoundHandler}
       >
+        <ColorPickPanel />
         <div className="awesome-lightsaber">
           <img
             className="awesome-lightsaber-img"

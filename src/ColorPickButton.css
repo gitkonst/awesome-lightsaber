@@ -1,0 +1,52 @@
+.color-button {
+    flex-grow: 1;
+    border: none;
+    padding: 0;
+    background: none;
+    outline: 0 none;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.color-button:first-child {
+    border-top-right-radius: 25%;
+}
+
+.color-button:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+.color-button:focus {
+    outline: none;
+}
+
+.color-button-blue {
+    background: linear-gradient(
+        to right,
+        rgb(0, 174, 255) 0%,
+        rgba(0, 174, 255, 0.3) 25%,
+        rgba(0, 174, 255, 0.2) 50%,
+        rgba(0, 174, 255, 0) 100%
+    );
+}
+
+.color-button-green {
+    background: linear-gradient(
+        to right,
+        rgb(70, 255, 53) 0%,
+        rgba(70, 255, 53, 0.3) 25%,
+        rgba(70, 255, 53, 0.2) 50%,
+        rgba(70, 255, 53, 0) 100%
+    );
+}
+
+.color-button-red {
+    background: linear-gradient(
+        to right,
+        rgb(255, 41, 0) 0%,
+        rgba(255, 41, 0, 0.3) 25%,
+        rgba(255, 41, 0, 0.2) 50%,
+        rgba(255, 41, 0, 0) 100%
+    );
+}
+

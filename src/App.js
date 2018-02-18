@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
-import AwesomeLightsaber from "./AwesomeLightsaber";
 import "./App.css";
+import AwesomeLightsaber from "./AwesomeLightsaber";
 
 class App extends PureComponent {
   render() {
