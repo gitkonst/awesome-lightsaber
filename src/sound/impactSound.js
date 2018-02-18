@@ -1,7 +1,7 @@
 import {isMobile} from "../platformDetection";
 import playUnsheatheSound from "./unsheatheSound";
 import soundFile from "./assets/lasrhit2_mod.wav";
-import impactFlash from "../impactFlash";
+import playAnimation from "../animation/playAnimation";
 
 const VOLUME_PC = 0.3; // Range is 0...1
 const VOLUME_MOBILE = 0.2;
@@ -19,7 +19,7 @@ function playImpactSound() {
   if(playPromise) { // Edge guard
     playPromise.catch(NOOP);
   }
-  impactFlash();
+  playAnimation(document.querySelector(".app"), "impactFlash 70ms linear");
 }
 
 let _impactAudioEnabled = false;

@@ -13,7 +13,6 @@ function motionHandler(event) {
   const accel = -accelerationNormalizedTilt(event);
   const angleDeg = accel * MAX_ANGLE_DEG;
   const tiltedImgStyle = selectStyle(_element);
-  console.log("accel: " + accel);
   tiltedImgStyle.transform = "rotateZ(" + angleDeg + "deg)";
 }
 

@@ -1,6 +1,6 @@
 @keyframes impactFlash {
-    0% { background-color: #050505; }
-    100% { background-color: #111; }
+    0% { background-color: #111; }
+    100% { background-color: #050505; }
 }
 
 .app {

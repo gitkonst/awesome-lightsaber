@@ -1,4 +1,5 @@
 import soundFile from "./assets/sw4-lightsabre.wav";
+import unsheatheAnimation from "../animation/unseatheAnimation";
 
 const VOLUME = 0.3;
 
@@ -13,6 +14,7 @@ function playUnsheatheSound() {
   if(playPromise) { // Edge guard
     playPromise.catch(NOOP);
   }
+  unsheatheAnimation();
 }
 
 export default playUnsheatheSound;

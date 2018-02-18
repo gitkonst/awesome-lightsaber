@@ -1,3 +1,3 @@
-const selectStyle = element => element.querySelector(".awesome-lightsaber").style;
+const selectStyle = element => element.querySelector(".lightsaber-tilted").style;
 
 export default selectStyle;
