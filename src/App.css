@@ -1,3 +1,8 @@
+@keyframes impactFlash {
+    0% { background-color: #050505; }
+    100% { background-color: #111; }
+}
+
 .app {
     height: 100%;
     position: relative;
