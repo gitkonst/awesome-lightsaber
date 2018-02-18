@@ -5,8 +5,7 @@ import addInputEventListeners from "./addInputEventListeners";
 import {enableImpactSoundHandler} from "./sound/impactSound";
 import playUnsheatheSound from "./sound/unsheatheSound";
 import {isMobile} from "./platformDetection";
-
-const SABER_IMG = "images/star-wars-2908144_1280_upright.png";
+import saberImg from "./images/star-wars-2908144_1280_upright.png";
 
 class AwesomeLightsaber extends PureComponent {
   componentDidMount() {
@@ -30,7 +29,7 @@ class AwesomeLightsaber extends PureComponent {
           <img
             className="awesome-lightsaber-img"
             onContextMenu={this.disableContextMenu}
-            src={SABER_IMG}
+            src={saberImg}
             alt="Lightsaber"
             draggable="false"
           />

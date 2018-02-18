@@ -1,13 +1,13 @@
 import {isMobile} from "../platformDetection";
 import playUnsheatheSound from "./unsheatheSound";
+import soundFile from "./assets/lasrhit2_mod.wav";
 
-const SOUND_FILE = "sounds/lasrhit2_mod.wav";
 const VOLUME_PC = 0.3; // Range is 0...1
 const VOLUME_MOBILE = 0.2;
 
 const VOLUME = isMobile() ? VOLUME_MOBILE : VOLUME_PC;
 
-const impactAudio = new Audio(SOUND_FILE);
+const impactAudio = new Audio(soundFile);
 impactAudio.volume = VOLUME;
 
 const NOOP = () => {/*tough luck*/};

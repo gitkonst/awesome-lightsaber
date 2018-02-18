@@ -1,7 +1,8 @@
-const SOUND_FILE = "sounds/sw4-lightsabre.wav";
+import soundFile from "./assets/sw4-lightsabre.wav";
+
 const VOLUME = 0.5;
 
-const unsheatheAudio = new Audio(SOUND_FILE);
+const unsheatheAudio = new Audio(soundFile);
 unsheatheAudio.volume = VOLUME;
 
 const NOOP = () => {/*tough luck*/};
