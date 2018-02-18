@@ -14,7 +14,6 @@ class AwesomeLightsaber extends PureComponent {
   }
 
   changeColorClass = (colorClass) => {
-    console.log("class changed: " + colorClass);
     this.setState({colorClass});
   };
 
