@@ -1,4 +1,4 @@
-import styleFromPointerEvent from "./styleFromPointerEvent";
+import selectStyle from "./selectStyle";
 
 function offsetCenterX(event) {
   const boundingRect = event.currentTarget.getBoundingClientRect();
@@ -20,7 +20,7 @@ function idle(event) {
     angle = angleRad(event);
     transitionTime /= 3;
   }
-  const tiltedImgStyle = styleFromPointerEvent(event);
+  const tiltedImgStyle = selectStyle(event.currentTarget);
   tiltedImgStyle.transform = `rotateZ(${angle}rad)`;
   tiltedImgStyle.transition = `transform ${transitionTime}s ease-out`;
 }
@@ -38,7 +38,7 @@ function angleRad(event) {
 
 function touchTiltHandler(event) {
   event.preventDefault();
-  const tiltedImgStyle = styleFromPointerEvent(event);
+  const tiltedImgStyle = selectStyle(event.currentTarget);
   tiltedImgStyle.transition = "";
   tiltedImgStyle.transform = "rotateZ(" + angleRad(event) + "rad)";
 }

@@ -1,4 +1,4 @@
-import styleFromPointerEvent from "./styleFromPointerEvent";
+import selectStyle from "./selectStyle";
 
 function offsetCenterX(event) {
   const boundingRect = event.currentTarget.getBoundingClientRect();
@@ -14,7 +14,7 @@ function offsetBottomY(event) {
 }
 
 function idle(event) {
-  const tiltedImgStyle = styleFromPointerEvent(event);
+  const tiltedImgStyle = selectStyle(event.currentTarget);
   tiltedImgStyle.transform = "rotateZ(0)";
   tiltedImgStyle.transition = "transform 0.19s ease-out";
 }
@@ -28,7 +28,7 @@ function mouseTiltHandler(event) {
   }
   let angleRad =  Math.PI / 2 - Math.atan(tan);
   if(tan < 0) angleRad -= Math.PI;
-  const tiltedImgStyle = styleFromPointerEvent(event);
+  const tiltedImgStyle = selectStyle(event.currentTarget);
   tiltedImgStyle.transition = "";
   tiltedImgStyle.transform = "rotateZ(" + angleRad + "rad)";
 }

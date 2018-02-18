@@ -5,6 +5,7 @@ import {isMobile} from "./platformDetection";
 
 import Tone from "tone";
 import StartAudioContext from "startaudiocontext";
+import addAccelerometerTilt from "./tilt/tiltAccelerometer";
 
 function addInputEventListeners(element) {
   if(!element) {
@@ -12,7 +13,8 @@ function addInputEventListeners(element) {
   }
   if(isMobile()) {
     addTouchSound(element);
-    addAccelerometerSound(element);
+    addAccelerometerSound();
+    addAccelerometerTilt(element);
     addTouchTilt(element);
   }
   else {
