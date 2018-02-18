@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import "./LinksPanel.css";
 
-const tweet = "Awesome Lightsaber: https://gitkonst.github.io/awesome-lightsaber #starwars #lightsaber #jedi";
+const tweet = "Awesome Lightsaber: https://gitkonst.github.io/awesome-lightsaber/ #starwars #jedi #lightsaber";
 const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`;
 
 class LinksPanel extends PureComponent {
