@@ -3,6 +3,8 @@ Your phone/mouse is a lightsaber! [Tap here to swing!](https://gitkonst.github.i
 
 Recommended browser: Google Chrome.
 
+[Also available on Google Play.](https://play.google.com/store/apps/details?id=konst.git.awesomelightsaber)
+
 ## Details
 The app produces dynamic lightsaber noises made possible with Tone.js library.
 
